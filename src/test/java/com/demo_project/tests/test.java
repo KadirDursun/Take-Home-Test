@@ -48,5 +48,10 @@ public class test {
         System.out.println(stringTest(s4));
         Assert.assertEquals(stringTest(s4),"8 and Selenium");
     }
+
+    @Test
+    public void test(){
+
+    }
 }
 

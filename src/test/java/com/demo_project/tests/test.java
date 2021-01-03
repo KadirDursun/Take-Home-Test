@@ -7,51 +7,65 @@ import java.util.Collections;
 
 public class test {
 
-    public String stringTest (String sentence) {
+    // Method to return the length and longest words in a sentence.
+    public String stringTest(String sentence) {
         try {
-            String[] word = sentence.split(" ");
-            String maxlethWord = "";
-            for (int i = 0; i < word.length; i++) {
-                if (word[i].length() >= maxlethWord.length()) {
-                    maxlethWord = word[i];
-                }            }
-            return maxlethWord.length() + " and " + maxlethWord;
+            String[] words = sentence.split(" ");
+            for (int j = 0; j < words.length; j++) {
+                if (words[j].length() == words[j].length()) {
+                    return "This sentence has more than one same length words";
+                }
+            }
+            String maxWord = "";
+            for (int i = 0; i < words.length; i++) {
+                if (words[i].length() >= maxWord.length()) {
+                    maxWord = words[i];
+                }
+            }
+            return maxWord.length() + " and " + maxWord;
         } catch (Exception e) {
-            return "this is a null value";
+            return "This is a null value";
         }
     }
 
-
+    // Verify the method with a sentence
     @Test
     public void testWord() {
-       String s= "I know java and selenium";
-       System.out.println(stringTest(s));
-       Assert.assertEquals(stringTest(s),"8 and selenium");
+        String s1 = "I know java and selenium";
+        System.out.println(stringTest(s1));
+        Assert.assertEquals(stringTest(s1), "8 and selenium");
     }
 
+    // Verify the method with null value
     @Test
-    public void nullTest(){
-        String ss=null;
-        System.out.println(stringTest(ss));
-        Assert.assertEquals(stringTest(ss),"this is a null value");
+    public void testNullValue() {
+        String s2 = null;
+        System.out.println(stringTest(s2));
+        Assert.assertEquals(stringTest(s2), "This is a null value");
     }
 
+    // Verify the method with empty value
     @Test
-    public void emptyString(){
-        String s3="";
+    public void testEmptyString() {
+        String s3 = "";
         System.out.println(stringTest(s3));
+        Assert.assertEquals(stringTest(s3), "0 and ");
     }
 
+    // Verify the method with single word
     @Test
-    public void singleWord(){
-        String s4="Selenium";
+    public void testSingleWord() {
+        String s4 = "Selenium";
         System.out.println(stringTest(s4));
-        Assert.assertEquals(stringTest(s4),"8 and Selenium");
+        Assert.assertEquals(stringTest(s4), "8 and Selenium");
     }
 
+    // Verify the method with more words
     @Test
-    public void test(){
-
+    public void testMoreWords() {
+        String s5 = "I like banana, almond, and orange";
+        System.out.println(stringTest(s5));
+        Assert.assertEquals(stringTest(s5), "This sentence has more than one same length words");
     }
 }
 

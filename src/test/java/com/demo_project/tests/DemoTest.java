@@ -70,6 +70,8 @@ public class DemoTest {
     public void testLaptopImage() {
         demoPage.clickGetStarted();
         Assert.assertTrue(demoPage.laptopIsDisplayed());
+
+        //DENEMEEE
     }
 
     @Test
